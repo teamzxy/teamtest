@@ -1,8 +1,6 @@
 import cv2
 
-#change
-#feature 사용해서 바꿨당~ㄴ
-#다시확인 
+#team
 img_orign= cv2.imread('number2.jpg')
 img_orign2 = img_orign
 
