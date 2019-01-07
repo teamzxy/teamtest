@@ -4,9 +4,9 @@ from django.shortcuts import render
 
 from rest_framework import viewsets
 from rest_framework.response import Response
-from .serializers import CelebSerializer,RacingModelSerializer
+from .serializers import CelebSerializer,categorySerializer
 from .models import crawl,box
-from .racing import racingmodel_list, announcer_list
+from .category_list import racingmodel_list, announcer_list
 #-------------------------#
 from background_task import background
 from django.utils import timezone
@@ -32,9 +32,8 @@ def slist(request):
             for v in area.find_all("div","wiki-heading-content"):
                 for b in v.find_all("li")[2:]:
                     names.append(b.text.split('[')[0])
-    print(">>>>",names)
 
-    if request == "기자":
+    elif request == "기자":
         link = announcer_list(request)
         for person_index in link:
             if '황선필' in names:
@@ -43,6 +42,7 @@ def slist(request):
                 k=k.text.split()[0]
                 if len(k)<4:
                     names.append(k)
+
     print(">>>>",names)
 
     for t in names:

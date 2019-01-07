@@ -11,7 +11,7 @@ class CelebSerializer(serializers.HyperlinkedModelSerializer):
         model = crawl
         fields=['id','post_name','post_path','post_category',]
 
-class RacingModelSerializer(serializers.HyperlinkedModelSerializer):
+class categorySerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = box
